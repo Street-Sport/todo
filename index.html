@@ -16,12 +16,13 @@
         let myClass8 = 'ok';
         let $name = 'норм';
         let _name = 'для классов'
+
         // Не рекомендуется
         let user_name = "не рекомендуется"; 
         let UserName = "не рекомендуется";
-        let 8Class = "ошибка";
-        let my-Var = 'ошибка';
-        let const = "ошибка"
+        // let 8Class = "ошибка";
+        // let my-Var = 'ошибка';
+        // let const = "ошибка"
 
     /************************/
     //    Операторы арифметические 
@@ -92,6 +93,69 @@
     console.log(Boolean("")) // false
     console.log(Boolean("a")) // true
 
+    /************************/
+    //   False из других типов
+    /************************/
+    console.log(Boolean(0))         // false
+    console.log(Boolean(''))        // false
+    console.log(Boolean(undefined)) // false
+    console.log(Boolean(null))      // false
+    console.log(Boolean(NaN))       // false
+
+
+    /************************/
+    //   SWITCH - удобен если есть много вариантов условий. Проверяется путем строгого сравнения 
+    /************************/
+    const role = "manager"
+    // 1 вариант - обычный. Если строго совпало role === "manager"
+        switch(role) {
+            case 'manager':                     // if (role === "manager")
+                console.log("Менеджер")
+                break;                          // если условие совпадает, то после break НИЧЕГО НЕ ВЫПОЛНЯЕТСЯ!!
+            case 5:                             
+                console.log("Цифра 5")
+                break;
+            default:                            // значение по дефолту, если ни один case не совпал  (можно не указывать)
+                console.log("мы тебя не знаем")
+        }
+    // Если есть 2 совпадения и больше
+        switch(role) {
+        case 'manager': 
+        case 'administrator':
+        case 'security': 
+            console.log("1 из условий выше совпало: администратор управляющий и охранник")
+            break;
+        default:    // значение по дефолту, если ни один case не совпал  (можно не указывать)
+            console.log("мы тебя не знаем")
+         }
+    // 3 Пример использования больше или меньше
+        const a = 5;
+        
+        switch(true) {
+            case a > 1 :                     
+                console.log(" a больше 1")
+                break;
+            case a < 1:                             
+                console.log(" a больше 2")
+                break;
+        default:    // 
+            console.log("НОЛЬ")
+         }
+
+    /************************/
+    //   ТЕРНАРНЫЙ (условный) ОПЕРАТОР 
+    /************************/
+    // пример 1 - стандартный.  короткая запись, замена обычному if else
+    10 > 0 ? console.log('больше') : console.log('Не больше');
+    
+    // пример 2 - если нужно вывести несколько действий, то нужно обернуть их в () скобки
+    10 > 0 ? (
+        console.log('1 действие'),
+        console.log('2 действие'),
+        console.log('3 действие')
+        ) : (
+            console.log('иначе')
+        );
 </script>
         
 
