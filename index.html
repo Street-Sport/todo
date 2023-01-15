@@ -211,6 +211,15 @@
     const elIndex = roles.indexOf('user') // 1  вернет первый найденый индекс нужного элемента 
     const elIndexx = roles.includes('user') // вернет true или false в зависимости есть ли элемент 
     console.log(elIndexx)
+
+    // разбить (преобразовать) строку на массив
+    const ссылка = 'auth/user/login';
+    const результат = ссылка.split('/') // указываем разделитель
+    console.log(результат) // получим  ['auth', 'user', 'login']
+
+    // из массива в строку
+    const строка = roles.join(', ');
+    console.log(строка) // вернет >> admin, user, Новое имя, Добавить
 </script>
         
 
