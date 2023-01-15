@@ -181,6 +181,36 @@
 
     const pof2 = (num, qwe) => { console.log(qwe); return num * num }; // 2 аргумент. записываем уде в фигурные скобки и добавляем return
 
+
+    /************************/
+    //   МАССИВЫ -  упорядоченная коллекция данных
+    /************************/
+    const roles = ['admin', 'user', 'superuser']; //  массив
+    console.log(roles)     //   0 : "admin" 1 : "user" 2 : "superuser" length : 3 
+    console.log(roles[0])   // admin                        (самое первое значение)
+    console.log(roles.length)   // 3                        (длина массива (кол-во элементов в массиве) )
+    console.log(roles[roles.length - 1])   // superuser     (последний элемент)
+    // новые синтаксис
+    console.log(roles.at(0)); // тоже самое что и console.log(roles[0])
+    console.log(roles.at(-1)); // тоже самое что иc onsole.log(roles[roles.length - 1])
+    //  математика в массиве
+    const usrAge = [2023 - 1991, 2 + 2]; //   [32, 4]
+
+    // работа с массивами
+    roles[2] = 'Новое имя' // изменить 3 значение
+    roles[3] = 'Добавить' // добавить к массиву 4 элемент (редко используется)
+    roles.push('Никита') //  добавить в КОНЕЦ. возвращает длину массива
+    roles.unshift('Вася') //  добавить в НАЧАЛО 
+    roles.pop() //  удаляет последний элемент. возвращает удаленный элемент
+    roles.shift() //  удаляет первый элемент. возвращает удаленный элемент
+    roles.slice(2) //  вернет все элементы начиная с 3. не изменяет массив. 
+    roles.slice(0,2) //  вернет 2 элемент с 0 по 1 не включая 2
+    // roles.concat(elIndexx) // объеденгить массивы
+
+    // поиск\проверка элемента
+    const elIndex = roles.indexOf('user') // 1  вернет первый найденый индекс нужного элемента 
+    const elIndexx = roles.includes('user') // вернет true или false в зависимости есть ли элемент 
+    console.log(elIndexx)
 </script>
         
 
