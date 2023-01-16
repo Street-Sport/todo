@@ -203,9 +203,11 @@
     roles.unshift('Вася') //  добавить в НАЧАЛО 
     roles.pop() //  удаляет последний элемент. возвращает удаленный элемент
     roles.shift() //  удаляет первый элемент. возвращает удаленный элемент
+    roles.splice(2,1) //  вырежит 1 элемент 3й по порядку (т.е. "2,1" - 2 начало, 1 кол-во). изменяет масив!
     roles.slice(2) //  вернет все элементы начиная с 3. не изменяет массив. 
     roles.slice(0,2) //  вернет 2 элемент с 0 по 1 не включая 2
-    // roles.concat(elIndexx) // объеденгить массивы
+    roles.concat(usrAge) // объеденгить массивы
+    roles.reverse() // переворачивает в обратном направлени. Модифицирует массив!
 
     // поиск\проверка элемента
     const elIndex = roles.indexOf('user') // 1  вернет первый найденый индекс нужного элемента 
@@ -219,7 +221,20 @@
 
     // из массива в строку
     const строка = roles.join(', ');
-    console.log(строка) // вернет >> admin, user, Новое имя, Добавить
+    console.log(строка) // получим   admin, user, Новое имя, Добавить
+
+    // Деструктуризация массива - берем структуру массива и разбиваем на отдельные элементы
+    const userData = ['Антон', 18, "Полтава"];
+    // БЫЛО -  много кода, 3 строки
+    const userNames = userData[0];
+    const userAge = userData[1];
+    const userCity = userData[2];
+    console.log(userNames + userAge + userCity)
+    // СТАЛО - мало кода, 1 строка
+    const [userNams, userAg, userCit] = userData;
+    // const [userNams, _, userCit] = userData;  // если нужно только 2 переменные, то лишнюю можно закрасить символом _
+    // const [userNams, ...others] = userData;  // записываем 1 переменную, остальные элементы отправляются в ...others
+    console.log(userNams + userAg + userCit)
 </script>
         
 
