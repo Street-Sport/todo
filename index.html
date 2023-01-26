@@ -426,7 +426,64 @@
     }
 
     // обращени к элементам
+    console.log(user) // обращение ко всему объекту
+    console.log(user.skills[0]) // "скорость"   - обращение к элементу массива
 
+    console.log(user.skills) // не  доступно для расчетных свойств . Чаще всего используется
+    console.log(user['skills']) // доступно для расчетных свойств. Например user['sur' + 'name'] где 'name' может быть переменная
+
+    user.age = 30 // модифицируем объект (изменяем значение)
+    user.city = 'Lviv' // добавляем новое значение
+
+    // ПРАКТИКА!  Сортировка массива объектов по возрасту
+    const users = [
+        {name: 'Вася', age: 30},
+        {name: 'Катя', age: 18},
+        {name: 'Аня', age: 40},
+        {name: 'Петя', age: 25},
+    ]
+    users.sort((a,b) => {
+        return a.age - b.age
+    })
+    /* получаем:
+        {name: 'Катя', age: 18}
+        {name: 'Петя', age: 25}
+        {name: 'Вася', age: 30}
+        {name: 'Аня', age: 40}
+    */
+
+
+    // ПРАКТИКА!  преобразовать пользователей до вида {fullName: "Вася Пупкин", skillNum: 2}
+    const users2 = [
+        {
+            name: 'Вася', 
+            surname: 'Пупкин',
+            age: 30,
+            skills: ["Разработка", "DevOps"]
+        },
+        {
+            name: 'Катя', 
+            surname: 'Белова',
+            age: 18,
+            skills: ["дизайн"]
+            } ,
+    ]
+    const result = users2.map(user => {
+        return {
+            fullName: `${user.name} ${user.surname}`,
+            skillNum: user.skills.length
+        };
+    })
+    /* получаем
+        {fullName: 'Вася Пупкин', skillNum: 2}
+        {fullName: 'Катя Белова', skillNum: 1}
+    */
+
+
+
+
+    
+    // МЕТОДЫ объектов
     </script>
 
         
