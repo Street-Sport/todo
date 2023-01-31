@@ -233,6 +233,7 @@
     // СТАЛО - мало кода, 1 строка
     const [userNams, userAg, userCit] = userData;
     // const [userNams, _, userCit] = userData;  // если нужно только 2 переменные, то лишнюю можно закрасить символом _
+
     // Rest оператор
     // const [userNams, ...others] = userData;  // записываем 1 переменную, остальные элементы отправляются в ...others
     console.log(userNams + userAg + userCit)
@@ -415,14 +416,17 @@
     /************************/
     // пример объекта
     const user = {
-        name: 'Вася',
+        name: 'Вася', //свойство объекта
         surname: 'Пупкин',
         age: 24,
         1: 2,
-        skills: [ // массив в обхект
+        skills: [ // массив в обхеке
             'скорость',
             'выносливость',
-        ]
+        ],
+        go: function() { // матод (любое св-во кот. яв-ся ссылкой на функци - назв. методом)
+            console.log('123')
+        }
     }
 
     // обращени к элементам
@@ -482,9 +486,93 @@
 
 
 
-    
     // МЕТОДЫ объектов
-    </script>
+    const user5 = {
+        name: "Mike",
+        surname: "Shinoda",
+        getFullName: function(){ // матод. Можно писать без function 
+            return this.name + " " + this.surname;
+        }
+    }
+    console.log(user5.getFullName()) // вызов метода
+    
+    
+    // итерирование по объекту
+    const city = {
+        msk: {
+            left: 200,
+            temp: 25
+        },
+        spb: {
+            lt: 100,
+            tp: 20
+        }
+    }
+    for (const key in city) {
+        console.log(key)
+    }
+    /* получим 
+        msk
+        pb
+    */
+
+    // деструктуризация и rest
+    const user4 = {
+        name: 'Вася', //свойство объекта
+        surname: 'Пупкин',
+        age: 24,
+    }
+    const{age, name} = user4; // деструктурируем  МОжно записать остальные данные в переменную с помощью rest пример:  {age, ...user7}
+    /* получим
+        name 'Вася'
+        age 24
+    */
+
+    //    optional chaining - обход ошибки при вызове несуществующего свойства из объекта
+    const citiess = {
+        msk: {
+            temp: {
+                celcius: 25
+            }
+        },
+        spb: {
+
+        }
+    } 
+    console.log(citiess.msk?.temp?.celcius); // 25
+    console.log(citiess.spb?.temp?.celcius); // undefined (нет ошибки, просто будет undefined при вызове)
+
+
+    /************************/
+    // Scope chain - область видимости
+    /************************/
+    // Глобальный scope - переменная доступна везде
+    const b = 1; 
+
+    // Scope функции - переменная доступна только внутри 
+    function name() {
+        const c = 1; функции
+    }
+
+    // Блочный scope -  переменная доступна только внутри 
+    if (b<10){
+        const d = 1;блока
+        var d = 1; // var - исключение, будет виден как глобальная переменная
+        
+        function name() { // функция будет видна как глобальная, без строгого режима
+            console.log('test') // 
+        }
+    }
+
+    // Strict mode - строгий режим
+    /*
+        Невозможность объявления переменной без ключевого слова
+        Blocked scope для функций (функции внутри блока не будут глобальными)
+        Ограничение название переменных, которые могут добавиться в язык позднее (например const interface)
+        Удаление переменных через delet 
+        Дублируемый параметр (например function (a,a)- дублируются параметры)
+    */
+</script>
 
         
 
