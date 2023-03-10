@@ -654,6 +654,69 @@
     // 
     // DOM - document object modal - объектное представление исходного html документа . Благодаря нему мы можем манипулировать элементами на странице
     // 
+
+    // Выбор и манипуляции с элементами
+        // querySelector - озвращает первый элемент, который соответствует одному или более CSS селекторам. Если совпадения не будет, то он вернет null
+        let ele = document.querySelector("#selector");
+
+        // querySelectorAll() - возвращает все элементы (в виде NodeList), которые подходят под указанный CSS селектор
+
+        let eles = document.querySelectorAll(".selector");
+        let elesAttr = document.querySelectorAll(".selector")[0]; // вернет первый элемент из коллекции
+
+
+        // Обработка нажатий 
+        // 1 вариант - позволяет добавить несколько обработчиков для одинаковых событий. Т.е. таких функций можно делать сколько угодно на один объект 
+        переменная.addEventListener('click', function () {
+            console.log('click')
+        });
+        //  Используется если нужно выполнить одно действие по данному элементу. Т.е. если продублировать ниже такую де функцию, то сработает только плследнняя.
+        переменная.onclick = function () {
+            console.log('click')
+        }
+
+        // event this target 
+        переменная.addEventListener('click', function (event) {
+            console.log(this)               // вернет элемент на который навешен обработчик 
+            console.log(event)              // вернет всю информацию по инвенту (куда нажали, какой кнопкой и тд)
+            console.log(event.target)       // вернет элемент на который нажали (может вернуть внутренний элемент)
+        })
+
+        // Обработка событий клавиатуры
+        elem.addEventListener("keydown", function (event) {
+            console.log('keydown');
+            if(event.keyCode == 81) {
+               console.log("нажата q")
+            }
+        });
+
+        // Установка атрибутов
+        document.querySelector('.selector').getAttribute('class') // вернет все классы у селектора
+        document.querySelector('.selector').setAttribute('class', 'qwe') // удалить все классы и установить .qwe
+
+        // добавление html кода на лету
+        const newElement = document.createElement('button');
+        newElement.setAttribute('user-id', 1);
+        newElement.classList.add('button');
+        document.body.appendChild(newElement);
+        // ПОЛУЧИМ - <button user-id="1" class="button"></button>
+
+        //  Local storage
+        localStorage.setItem('ключ','значение1'); // устанавливаем значение (всегда будет строка)
+        localStorage.ключ = "значение2" // короткая запись
+        localStorage.getItem('ключ'); // получаем значение ("значение1")
+        localStorage.ключ // короткая запись получения значения
+        localStorage.removeItem('ключ') //  удалить данные с ключом 
+        localStorage.clear() // удалить все ключи и значения
+
+        // JSON - текстовый формат обмена данными
+
+        /* Есть 2 метода:
+            JSON.stringify для преобразования объектов в JSON.
+            JSON.parse для преобразования JSON обратно в объект.
+        */
+        const abt =  JSON.parse('{"a": 1, "b": 2}') // вернет объект > a: 1, b: 2
+        const abt2 =  JSON.stringify(abt) // вернет строку >  {"a":1,"b":2}
 </script>
 
         
